@@ -34,6 +34,7 @@ int main()
 		{
 			//for part 1 we split into 2 maps, depending on whether the value is > or < half the input number, so we can limit the amount of iterations we need
 			//if our first number is in one map, we know the other number must be in the other map in order to match our criteria
+			//we're making the assumption here that you can't have duplicates, so exactly half isn't a valid state. We would need an extra map if so
 			if ( (float)line < (input_number / 2.f) )
 			{
 				lower_half.insert( std::pair<int, int>( line, 1 ) );
