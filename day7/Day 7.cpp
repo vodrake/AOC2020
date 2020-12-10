@@ -10,6 +10,7 @@
 #include <map>
 #include <set>
 #include <sstream>
+#include <unordered_map>
 
 
 using ID_HASH = size_t;
@@ -24,7 +25,7 @@ struct COLOURED_BAG
 	bool m_can_contain_gold_bag = false;
 };
 
-std::map<ID_HASH, COLOURED_BAG> m_bags;
+std::unordered_map<ID_HASH, COLOURED_BAG> m_bags;
 
 
 ID_HASH create_hash_of_bag_colour( const std::string bag_colour ) {	return  std::hash<std::string>{} (bag_colour); }
