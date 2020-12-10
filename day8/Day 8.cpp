@@ -59,7 +59,7 @@ int main()
 			int accumulator = 0;
 			size_t cmd_pos = 0;
 			bool has_flipped_in_iter = false;
-			//make a copy of the instruction list so we can reset after each attempt
+
 			while ( true )
 			{
 				//for part 2 return once we've hit a loop that visits the last instruction and then carries on past the array
@@ -85,6 +85,7 @@ int main()
 
 				std::string instr_type = inst.m_instr_type;
 				const int instr_value = inst.m_instr_value;
+				//if we can, for part 2, try flipping one (and only one!) of our jmp or nop operations to see if we can hit the end instruction
 				if ( can_flip_instruction && !has_flipped_in_iter && !inst.m_has_tried_swapping && (instr_type == "jmp" || instr_type == "nop" ) )
 				{
 					if ( instr_type == "jmp" )
@@ -122,6 +123,6 @@ int main()
 
 	int accumulator_part2 = run_instruction_set(  true );
 	std::cout << "===================PART 2===============================" << std::endl;
-	std::cout << "Accumulator before loop:" << accumulator_part2 << std::endl;
+	std::cout << "Accumulator when hitting last instruction:" << accumulator_part2 << std::endl;
 }
 
